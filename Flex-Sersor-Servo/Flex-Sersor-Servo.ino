@@ -1,9 +1,21 @@
+#include <Servo.h>
+Servo Servo1;
+
+const int FLEX = 13;
+const int SER = A0
+
+
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Servo1.attach(SER);
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  int Flex_Reading = analogRead(FLEX);
+  Serial.print(Flex_Reading);
+  int a = map(Flex_Reading, 2, 30 , 0, 180 );
+  Servo.write(a);
+  delay(100); 
 
 }
