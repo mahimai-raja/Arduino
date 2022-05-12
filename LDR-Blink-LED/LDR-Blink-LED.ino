@@ -1,9 +1,25 @@
+// Mention the pins 
+
+const int LED = 13;
+const int LDR = A0;   
+
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(LED,OUTPUT);
+  pinMode(LDR,INPUT);
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  int LDR_Status = analogRead(LDR);
+
+  if ( LDR_Status <= 400 ) {
+    digitalWrite(LED,HIGH);
+    Serial.println("Room is dark, so light is on");
+  }
+  else {
+    digitalWrite(LED,LOW);
+    Serial.println("--------------");
+  }
 
 }
